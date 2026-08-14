@@ -1,0 +1,23 @@
+.DS_Store
+*.log
+*.tmp
+*.bak
+.env
+.env.*
+.idea/
+.vscode/
+
+# Local overrides and runtime state are never tracked.
+home/.zshrc.local
+**/credentials*
+**/secrets*
+**/session.json
+**/*history*
+**/.npmrc
+**/.netrc
+**/.ssh/
+**/.aws/
+**/.azure/
+**/.kube/
+**/.copilot/
+**/.claude/

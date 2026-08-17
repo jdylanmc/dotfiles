@@ -4,7 +4,8 @@ Public, source-controlled macOS development configuration.
 
 This repository owns personal shell and terminal preferences. The reusable
 coding-agent workspace is maintained separately in
-[jdylanmc/maestro](https://github.com/jdylanmc/maestro).
+[jdylanmc/maestro](https://github.com/jdylanmc/maestro). Until Maestro v2 is
+implemented, `--with-maestro` installs its preserved `proto-v1` launcher.
 
 ## Fresh Mac
 

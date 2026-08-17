@@ -73,7 +73,7 @@ if [[ "$with_maestro" -eq 1 ]]; then
   if [[ "$use_brew" -eq 0 ]]; then
     maestro_args+=(--no-brew)
   fi
-  "$maestro_repo/install.sh" "${maestro_args[@]}"
+  "$maestro_repo/proto-v1/install.sh" "${maestro_args[@]}"
 fi
 
 "$ROOT/scripts/check-public.sh"

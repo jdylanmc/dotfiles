@@ -55,6 +55,7 @@ link_file() {
 
 link_file "$ROOT/home/.zshrc" "$HOME/.zshrc"
 link_file "$ROOT/home/.config/wezterm" "$HOME/.config/wezterm"
+link_file "$ROOT/home/.config/ghostty" "$HOME/.config/ghostty"
 
 git -C "$ROOT" config core.hooksPath .githooks
 

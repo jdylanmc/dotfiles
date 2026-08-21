@@ -8,6 +8,10 @@ copying or printing their contents.
 |---|---|---|
 | `~/.zshrc` | Critical, current | Sanitized baseline backported; private additions move to `~/.zshrc.local`. |
 | `~/.config/wezterm/wezterm.lua` | Critical, current | Backported with optional Maestro delegation. |
+| `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the theme only. |
+| `~/Library/Application Support/com.cmuxterm.app/config.ghostty` | Tool-owned, generated | Not tracked. `cmux themes set` rewrites this file between its own `# cmux themes start/end` markers, so linking it would fight the application. `~/.config/ghostty/config` is the authored source instead. |
+| `~/.config/cmux/cmux.json` | Tool-owned, generated | Not tracked while it holds no authored settings. The file is 401 lines of cmux's own commented-out defaults with 4 active lines (`$schema`, `schemaVersion`). Revisit if real customization is added; audit for `automation.socketPassword` before backporting, since that key would be a credential. |
+| `~/.copilot/` | Authentication or work runtime | Permanently excluded; holds employer plugin, marketplace, and Model Context Protocol configuration. The public `copilot-cmux` plugin is declared as an install step only, never by copying this directory. |
 | `~/.config/herdr/` | Critical, current | Owned by the Maestro repository; logs, locks, and sessions excluded. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Critical, pending review | Do not backport until identity, includes, signing, and credential helpers are separated. |

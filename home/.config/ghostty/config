@@ -1,0 +1,11 @@
+# Ghostty configuration.
+#
+# cmux embeds libghostty and reads this file for terminal behavior, so the same
+# settings apply to Ghostty proper and to cmux panes.
+#
+# Note: `cmux themes set` writes its own managed block to
+# ~/Library/Application Support/com.cmuxterm.app/config.ghostty. That file is
+# rewritten by cmux and is deliberately not tracked here; this file is the
+# authored source of truth.
+
+theme = light:Nord,dark:Nord

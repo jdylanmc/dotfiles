@@ -1,0 +1,25 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  // cmux writes its full commented default set into this file on first run.
+  // Only authored settings are tracked here; run `cmux config docs` or read the
+  // schema above for the full surface.
+
+  // The Ghostty theme only colours terminal surfaces. The sidebar, tab bar, and
+  // title bar are native AppKit and follow the system appearance, so a dark
+  // terminal sits in a light window until both of these are set.
+  "app": {
+    "appearance": "dark",
+    "preferredEditor": "code"
+  },
+  "sidebarAppearance": {
+    "matchTerminalBackground": true
+  },
+
+  // Double-clicking a file in the right-sidebar file explorer opens it in
+  // `preferredEditor` rather than cmux's built-in preview.
+  "fileExplorer": {
+    "doubleClickAction": "preferredEditor"
+  }
+}

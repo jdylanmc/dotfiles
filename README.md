@@ -45,10 +45,15 @@ Both terminals are declared in the `Brewfile`.
 `home/.config/ghostty/config` is read by Ghostty and by cmux, which embeds
 libghostty, so one authored file themes both.
 
-Two cmux-adjacent paths are deliberately **not** tracked, for reasons recorded
-in [`docs/dotfile-inventory.md`](./docs/dotfile-inventory.md): cmux rewrites its
-own `config.ghostty` under `~/Library/Application Support/`, and
-`~/.config/cmux/cmux.json` currently holds no authored settings.
+`home/.config/cmux/cmux.json` carries the authored cmux settings only: dark app
+chrome and a terminal-matched sidebar, so the native window agrees with the
+terminal theme, and Visual Studio Code as the preferred editor, so double-clicking
+a file in the explorer opens it there rather than in cmux's preview.
+
+One cmux-adjacent path is deliberately **not** tracked, for the reason recorded in
+[`docs/dotfile-inventory.md`](./docs/dotfile-inventory.md): cmux rewrites its own
+`config.ghostty` under `~/Library/Application Support/`, so linking it would fight
+the application.
 
 ### cmux agent plugins
 

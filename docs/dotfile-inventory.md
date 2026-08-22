@@ -11,6 +11,9 @@ copying or printing their contents.
 | `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the theme only. |
 | `~/Library/Application Support/com.cmuxterm.app/config.ghostty` | Tool-owned, generated | Not tracked. `cmux themes set` rewrites this file between its own `# cmux themes start/end` markers, so linking it would fight the application. `~/.config/ghostty/config` is the authored source instead. |
 | `~/.config/cmux/cmux.json` | Authored, current | Backported, trimmed to authored settings only. cmux writes ~400 lines of its own commented-out defaults into this file on first run; those are not tracked. Audited before backporting: `automation.socketPassword` is absent, and no employer or credential content is present. **Caveat:** if cmux ever rewrites this file it will write through the symlink and re-add the default dump to the repository copy, which should then be re-trimmed. |
+| `~/.config/nvim/` | Absent at review | No existing configuration files were available to import. Initialized from a minimal current LazyVim starter-style baseline and linked from `home/.config/nvim`. |
+| `~/.local/state/nvim/nvim.log` | Tool-owned, generated | Not imported or modified. Runtime logs remain outside the repository. |
+| `~/.local/share/nvim/`, `~/.cache/nvim/` | Absent at review | No plugin data or cache required migration. Future contents remain tool-owned and untracked. |
 | `~/.copilot/` | Authentication or work runtime | Permanently excluded; holds employer plugin, marketplace, and Model Context Protocol configuration. The public `copilot-cmux` plugin is declared as an install step only, never by copying this directory. |
 | `~/.config/herdr/` | Critical, current | Owned by the Maestro repository; logs, locks, and sessions excluded. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |

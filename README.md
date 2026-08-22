@@ -20,7 +20,7 @@ The installer:
 1. installs declared public Homebrew dependencies
 2. installs Oh My Zsh from its public repository if needed
 3. backs up conflicting live files
-4. links repository-owned Zsh, WezTerm, and Ghostty configuration into `$HOME`
+4. links repository-owned Zsh, terminal, cmux, and Neovim configuration into `$HOME`
 5. optionally clones and installs Maestro
 6. enables versioned pre-commit and pre-push public-content checks
 
@@ -71,6 +71,18 @@ Copilot configuration is copied into this repository.
 
 That file is sourced when present and must never be copied into this
 repository.
+
+## Neovim
+
+`home/.config/nvim` is a minimal
+[LazyVim starter](https://github.com/LazyVim/starter)-style configuration.
+The first Neovim launch bootstraps `lazy.nvim` and installs LazyVim's default
+plugins. Add local plugin specifications under `lua/plugins/`; the generated
+`lazy-lock.json` is tracked to keep plugin revisions reproducible.
+
+The `Brewfile` declares LazyVim's command-line prerequisites and an optional
+Nerd Font for icons. Run `:LazyHealth` after plugin updates to check the
+installation.
 
 ## Development-dotfile audit
 

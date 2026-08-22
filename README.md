@@ -20,7 +20,7 @@ The installer:
 1. installs declared public Homebrew dependencies
 2. installs Oh My Zsh from its public repository if needed
 3. backs up conflicting live files
-4. links repository-owned Zsh, WezTerm, and Ghostty configuration into `$HOME`
+4. links repository-owned Zsh, terminal, cmux, and Neovim configuration into `$HOME`
 5. optionally clones and installs Maestro
 6. enables versioned pre-commit and pre-push public-content checks
 
@@ -45,10 +45,15 @@ Both terminals are declared in the `Brewfile`.
 `home/.config/ghostty/config` is read by Ghostty and by cmux, which embeds
 libghostty, so one authored file themes both.
 
-Two cmux-adjacent paths are deliberately **not** tracked, for reasons recorded
-in [`docs/dotfile-inventory.md`](./docs/dotfile-inventory.md): cmux rewrites its
-own `config.ghostty` under `~/Library/Application Support/`, and
-`~/.config/cmux/cmux.json` currently holds no authored settings.
+`home/.config/cmux/cmux.json` carries the authored cmux settings only: dark app
+chrome and a terminal-matched sidebar, so the native window agrees with the
+terminal theme, and Visual Studio Code as the preferred editor, so double-clicking
+a file in the explorer opens it there rather than in cmux's preview.
+
+One cmux-adjacent path is deliberately **not** tracked, for the reason recorded in
+[`docs/dotfile-inventory.md`](./docs/dotfile-inventory.md): cmux rewrites its own
+`config.ghostty` under `~/Library/Application Support/`, so linking it would fight
+the application.
 
 ### cmux agent plugins
 
@@ -66,6 +71,18 @@ Copilot configuration is copied into this repository.
 
 That file is sourced when present and must never be copied into this
 repository.
+
+## Neovim
+
+`home/.config/nvim` is a minimal
+[LazyVim starter](https://github.com/LazyVim/starter)-style configuration.
+The first Neovim launch bootstraps `lazy.nvim` and installs LazyVim's default
+plugins. Add local plugin specifications under `lua/plugins/`; the generated
+`lazy-lock.json` is tracked to keep plugin revisions reproducible.
+
+The `Brewfile` declares LazyVim's command-line prerequisites and an optional
+Nerd Font for icons. Run `:LazyHealth` after plugin updates to check the
+installation.
 
 ## Development-dotfile audit
 

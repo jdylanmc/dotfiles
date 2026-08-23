@@ -6,9 +6,9 @@ copying or printing their contents.
 
 | Path | Classification | Disposition |
 |---|---|---|
-| `~/.zshenv` | Authored, current | Backported with a portable `$HOME` path and optional Rust environment loading. |
+| `~/.zshenv` | Authored, current | Backported with a portable `$HOME` path for user-local developer tools. |
 | `~/.zshrc` | Critical, current | Sanitized baseline backported; private additions move to `~/.zshrc.local`. |
-| `~/.config/wezterm/wezterm.lua` | Critical, current | Backported with optional Maestro delegation. |
+| `~/.config/wezterm/` | Removed | Retired after standardizing on cmux; no longer installed, linked, or tracked by this repository. |
 | `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the shared font and theme settings. |
 | `~/Library/Application Support/com.cmuxterm.app/config.ghostty` | Tool-owned, generated | Not tracked. `cmux themes set` rewrites this file between its own `# cmux themes start/end` markers, so linking it would fight the application. `~/.config/ghostty/config` is the authored source instead. |
 | `~/.config/cmux/cmux.json` | Authored, current | Backported, trimmed to authored settings only. cmux writes ~400 lines of its own commented-out defaults into this file on first run; those are not tracked. Audited before backporting: `automation.socketPassword` is absent, and no employer or credential content is present. **Caveat:** if cmux ever rewrites this file it will write through the symlink and re-add the default dump to the repository copy, which should then be re-trimmed. |
@@ -20,7 +20,8 @@ copying or printing their contents.
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Critical, pending review | Do not backport until identity, includes, signing, and credential helpers are separated. |
 | `~/.profile` | Removed | Redundant for the configured Zsh login shell after Cargo environment loading moved to the tracked `~/.zshenv`. |
-| `~/.bashrc`, `~/.tcshrc` | Possibly obsolete | Determine whether any active tool still launches these shells. |
+| `~/.bashrc` | Removed | Contained redundant Rust setup and work-only authentication paths; Bash is not the configured login shell. |
+| `~/.tcshrc` | Removed | Contained only unused Rust environment setup; tcsh is not the configured login shell. |
 | `~/.zshrc-e`, `~/.bashrc-e`, `~/.zshrc.pre-oh-my-zsh` | Legacy backups | Compare once, then archive or delete locally; never link as live config. |
 | `~/.npmrc` | Sensitive local state | Permanently excluded; may contain registry authentication. |
 | `~/.ssh/`, `~/.gnupg/` | Sensitive local state | Permanently excluded. Document setup concepts only, never key material. |

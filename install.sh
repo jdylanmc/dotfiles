@@ -55,7 +55,6 @@ link_file() {
 
 link_file "$ROOT/home/.zshenv" "$HOME/.zshenv"
 link_file "$ROOT/home/.zshrc" "$HOME/.zshrc"
-link_file "$ROOT/home/.config/wezterm" "$HOME/.config/wezterm"
 link_file "$ROOT/home/.config/ghostty" "$HOME/.config/ghostty"
 link_file "$ROOT/home/.config/cmux/cmux.json" "$HOME/.config/cmux/cmux.json"
 link_file "$ROOT/home/.config/nvim" "$HOME/.config/nvim"

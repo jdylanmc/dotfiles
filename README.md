@@ -41,9 +41,9 @@ Private, machine-specific, or employer-specific shell additions belong in:
 ~/.zshrc.local
 ```
 
-## Terminals
+## Terminal
 
-Both terminals are declared in the `Brewfile`.
+cmux and the terminal font are declared in the `Brewfile`.
 
 `home/.config/ghostty/config` is read by Ghostty and by cmux, which embeds
 libghostty, so one authored file applies the JetBrains Mono Nerd Font and theme

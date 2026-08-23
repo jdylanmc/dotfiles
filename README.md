@@ -45,6 +45,7 @@ Private, machine-specific, or employer-specific shell additions belong in:
 ## Git identities
 
 `home/.gitconfig` contains identity-free shared behavior and is safe to track.
+It uses Delta for paged and interactive diffs.
 The installer creates private local files with mode `0600`:
 
 | Path | Purpose |

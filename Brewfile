@@ -1,4 +1,6 @@
 brew "git"
+brew "gh"
+brew "git-delta"
 brew "git-lfs"
 brew "neovim"
 brew "nvm"

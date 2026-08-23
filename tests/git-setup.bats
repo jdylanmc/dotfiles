@@ -31,6 +31,9 @@ init_test_repo() {
   [ "$(stat -f '%Lp' "$HOME/.gitconfig.local")" = "600" ]
   [ "$(stat -f '%Lp' "$HOME/.gitconfig.personal")" = "600" ]
   [ "$(stat -f '%Lp' "$HOME/.gitconfig.work")" = "600" ]
+  [ "$(git config --global core.pager)" = "delta" ]
+  [ "$(git config --global interactive.diffFilter)" = "delta --color-only" ]
+  [ "$(git config --global delta.navigate)" = "true" ]
 }
 
 @test "GitHub CLI install links preferences without touching authentication" {

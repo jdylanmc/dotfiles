@@ -4,6 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 use_brew=1
 with_maestro=0
+git_setup=1
 
 while [[ "$#" -gt 0 ]]; do
   case "$1" in
@@ -13,6 +14,10 @@ while [[ "$#" -gt 0 ]]; do
       ;;
     --with-maestro)
       with_maestro=1
+      shift
+      ;;
+    --no-git-setup)
+      git_setup=0
       shift
       ;;
     *)
@@ -27,57 +32,30 @@ if [[ "$(uname -s)" != "Darwin" ]]; then
   exit 1
 fi
 
-if [[ "$use_brew" -eq 1 ]]; then
-  if ! command -v brew >/dev/null 2>&1; then
-    echo "Install Homebrew from https://brew.sh, then re-run install.sh." >&2
-    exit 1
-  fi
-  brew bundle --file "$ROOT/Brewfile"
-fi
+# shellcheck source=scripts/lib/install.sh
+source "$ROOT/scripts/lib/install.sh"
+# shellcheck source=scripts/install/homebrew.sh
+source "$ROOT/scripts/install/homebrew.sh"
+# shellcheck source=scripts/install/shell.sh
+source "$ROOT/scripts/install/shell.sh"
+# shellcheck source=scripts/install/terminal.sh
+source "$ROOT/scripts/install/terminal.sh"
+# shellcheck source=scripts/install/neovim.sh
+source "$ROOT/scripts/install/neovim.sh"
+# shellcheck source=scripts/install/git.sh
+source "$ROOT/scripts/install/git.sh"
+# shellcheck source=scripts/install/maestro.sh
+source "$ROOT/scripts/install/maestro.sh"
 
-if [[ ! -d "$HOME/.oh-my-zsh/.git" ]]; then
-  git clone --depth 1 https://github.com/ohmyzsh/ohmyzsh.git "$HOME/.oh-my-zsh"
-fi
-
-backup_suffix="$(date +%Y%m%d%H%M%S)"
-link_file() {
-  local source="$1"
-  local target="$2"
-  mkdir -p "$(dirname "$target")"
-  if [[ -L "$target" ]] && [[ "$(readlink "$target")" == "$source" ]]; then
-    return
-  fi
-  if [[ -e "$target" || -L "$target" ]]; then
-    mv "$target" "${target}.backup.${backup_suffix}"
-  fi
-  ln -s "$source" "$target"
-}
-
-link_file "$ROOT/home/.zshenv" "$HOME/.zshenv"
-link_file "$ROOT/home/.zshrc" "$HOME/.zshrc"
-link_file "$ROOT/home/.config/ghostty" "$HOME/.config/ghostty"
-link_file "$ROOT/home/.config/cmux/cmux.json" "$HOME/.config/cmux/cmux.json"
-link_file "$ROOT/home/.config/nvim" "$HOME/.config/nvim"
+init_install
+install_homebrew "$ROOT" "$use_brew"
+install_shell "$ROOT"
+install_terminal "$ROOT"
+install_neovim "$ROOT"
+install_git "$ROOT" "$git_setup"
 
 git -C "$ROOT" config core.hooksPath .githooks
-
-if [[ "$with_maestro" -eq 1 ]]; then
-  maestro_repo=""
-  if [[ -d "$ROOT/../maestro/.git" ]]; then
-    maestro_repo="$(cd "$ROOT/../maestro" && pwd -P)"
-  else
-    maestro_repo="$HOME/.local/share/maestro"
-    if [[ ! -d "$maestro_repo/.git" ]]; then
-      mkdir -p "$(dirname "$maestro_repo")"
-      git clone https://github.com/jdylanmc/maestro.git "$maestro_repo"
-    fi
-  fi
-  maestro_args=()
-  if [[ "$use_brew" -eq 0 ]]; then
-    maestro_args+=(--no-brew)
-  fi
-  "$maestro_repo/proto-v1/install.sh" "${maestro_args[@]}"
-fi
+install_maestro "$ROOT" "$with_maestro" "$use_brew"
 
 "$ROOT/scripts/check-public.sh"
 echo "Dotfiles installed. Start a new Zsh session to load them."

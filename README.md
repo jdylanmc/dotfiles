@@ -20,12 +20,13 @@ The installer:
 1. installs declared public Homebrew dependencies
 2. installs Oh My Zsh from its public repository if needed
 3. backs up conflicting live files
-4. links repository-owned Zsh startup, terminal, cmux, and Neovim configuration into `$HOME`
-5. optionally clones and installs Maestro
-6. enables versioned pre-commit and pre-push public-content checks
+4. links repository-owned Zsh startup, Git, terminal, cmux, and Neovim configuration into `$HOME`
+5. guides personal and optional work Git identity setup into untracked local files
+6. optionally clones and installs Maestro
+7. enables versioned pre-commit and pre-push public-content checks
 
 Use `--no-brew` to skip package installation or omit `--with-maestro` to
-install only dotfiles.
+install only dotfiles. Use `--no-git-setup` to skip guided Git identity prompts.
 
 ## Live-file model
 
@@ -40,6 +41,31 @@ Private, machine-specific, or employer-specific shell additions belong in:
 ```text
 ~/.zshrc.local
 ```
+
+## Git identities
+
+`home/.gitconfig` contains identity-free shared behavior and is safe to track.
+The installer creates private local files with mode `0600`:
+
+| Path | Purpose |
+|---|---|
+| `~/.gitconfig.local` | Routes the optional default work identity. |
+| `~/.gitconfig.personal` | Personal identity used under `~/git/_opensource/`. |
+| `~/.gitconfig.work` | Optional default identity outside `_opensource`. |
+
+Run `scripts/setup-git.sh` to configure or update identities. Actual names,
+emails, credentials, signing identities, hosts, and employer settings are never
+stored in this repository. Work identity routing remains inactive until a
+complete personal identity exists, preventing it from leaking into
+`_opensource`. Existing non-symlinked `~/.gitconfig` files are left untouched
+until they are deliberately migrated.
+
+## Installer maintenance
+
+`install.sh` is a thin macOS orchestrator. Shared safe-write helpers live under
+`scripts/lib/`, and each installation responsibility lives in
+`scripts/install/`. Run `scripts/test.sh` to execute ShellCheck and the isolated
+Bats suite.
 
 ## Terminal
 

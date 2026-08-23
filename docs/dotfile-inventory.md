@@ -18,7 +18,7 @@ copying or printing their contents.
 | `~/.copilot/` | Authentication or work runtime | Permanently excluded; holds employer plugin, marketplace, and Model Context Protocol configuration. The public `copilot-cmux` plugin is declared as an install step only, never by copying this directory. |
 | `~/.config/herdr/` | Critical, current | Owned by the Maestro repository; logs, locks, and sessions excluded. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
-| `~/.gitconfig` | Critical, pending review | Do not backport until identity, includes, signing, and credential helpers are separated. |
+| `~/.gitconfig` | Authored, current | Backported as an identity-free base. Personal and work identities, credentials, signing configuration, hosts, and employer settings remain in mode-`0600` local includes. |
 | `~/.profile` | Removed | Redundant for the configured Zsh login shell after Cargo environment loading moved to the tracked `~/.zshenv`. |
 | `~/.bashrc` | Removed | Contained redundant Rust setup and work-only authentication paths; Bash is not the configured login shell. |
 | `~/.tcshrc` | Removed | Contained only unused Rust environment setup; tcsh is not the configured login shell. |

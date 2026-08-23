@@ -60,6 +60,10 @@ complete personal identity exists, preventing it from leaking into
 `_opensource`. Existing non-symlinked `~/.gitconfig` files are left untouched
 until they are deliberately migrated.
 
+`home/.config/gh/config.yml` tracks GitHub CLI preferences only. The installer
+links that file individually so local `hosts.yml` authentication remains
+untracked and untouched.
+
 ## Installer maintenance
 
 `install.sh` is a thin macOS orchestrator. Shared safe-write helpers live under

@@ -4,7 +4,7 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)"
 cd "$ROOT"
 
-blocked_paths='(^|/)(\.env($|\.)|\.npmrc$|\.netrc$|credentials|secrets|session\.json$|.*history.*|\.ssh/|\.aws/|\.azure/|\.kube/|\.copilot/|\.claude/)'
+blocked_paths='(^|/)(\.env($|\.)|\.npmrc$|\.netrc$|credentials|secrets|session\.json$|.*history.*|\.ssh/|\.aws/|\.azure/|\.kube/|\.copilot/|\.claude/|home/\.config/gh/hosts\.yml$)'
 secret_patterns='(AKIA[0-9A-Z]{16}|github_pat_[A-Za-z0-9_]{20,}|gh[pousr]_[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|(^|[^A-Za-z])(password|passwd|api[_-]?key|access[_-]?token|client[_-]?secret)[[:space:]]*[:=][[:space:]]*[^[:space:]$<{][^[:space:]]*)'
 work_patterns='(microsoft|dev\.azure\.com|visualstudio\.com|xbox|xgang|fresno|garrison|gamestreaming)'
 

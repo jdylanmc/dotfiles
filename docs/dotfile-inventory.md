@@ -19,6 +19,7 @@ copying or printing their contents.
 | `~/.config/herdr/` | Critical, current | Owned by the Maestro repository; logs, locks, and sessions excluded. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Authored, current | Backported as an identity-free base. Personal and work identities, credentials, signing configuration, hosts, and employer settings remain in mode-`0600` local includes. |
+| `~/.config/gh/config.yml` | Authored, current | Backported with portable GitHub CLI preferences only. Linked individually so `hosts.yml` authentication and runtime state remain local. |
 | `~/.profile` | Removed | Redundant for the configured Zsh login shell after Cargo environment loading moved to the tracked `~/.zshenv`. |
 | `~/.bashrc` | Removed | Contained redundant Rust setup and work-only authentication paths; Bash is not the configured login shell. |
 | `~/.tcshrc` | Removed | Contained only unused Rust environment setup; tcsh is not the configured login shell. |

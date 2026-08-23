@@ -33,6 +33,17 @@ init_test_repo() {
   [ "$(stat -f '%Lp' "$HOME/.gitconfig.work")" = "600" ]
 }
 
+@test "GitHub CLI install links preferences without touching authentication" {
+  mkdir -p "$HOME/.config/gh"
+  printf 'local authentication state\n' >"$HOME/.config/gh/hosts.yml"
+
+  install_github_cli "$REPO_ROOT"
+
+  [ -L "$HOME/.config/gh/config.yml" ]
+  [ "$(readlink "$HOME/.config/gh/config.yml")" = "$REPO_ROOT/home/.config/gh/config.yml" ]
+  [ "$(cat "$HOME/.config/gh/hosts.yml")" = "local authentication state" ]
+}
+
 @test "existing gitconfig is preserved instead of replaced" {
   printf '[user]\n\tname = Existing\n' >"$HOME/.gitconfig"
 

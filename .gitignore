@@ -21,3 +21,4 @@ home/.zshrc.local
 **/.kube/
 **/.copilot/
 **/.claude/
+home/.config/gh/hosts.yml

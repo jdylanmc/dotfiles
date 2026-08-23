@@ -52,6 +52,7 @@ install_homebrew "$ROOT" "$use_brew"
 install_shell "$ROOT"
 install_terminal "$ROOT"
 install_neovim "$ROOT"
+install_github_cli "$ROOT"
 install_git "$ROOT" "$git_setup"
 
 git -C "$ROOT" config core.hooksPath .githooks

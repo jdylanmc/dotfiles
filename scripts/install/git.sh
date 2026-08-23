@@ -114,6 +114,12 @@ setup_git_guided() {
   refresh_git_local_routing
 }
 
+install_github_cli() {
+  local root="$1"
+
+  link_file "$root/home/.config/gh/config.yml" "$HOME/.config/gh/config.yml"
+}
+
 install_git() {
   local root="$1"
   local guided="$2"

@@ -8,7 +8,7 @@ copying or printing their contents.
 |---|---|---|
 | `~/.zshrc` | Critical, current | Sanitized baseline backported; private additions move to `~/.zshrc.local`. |
 | `~/.config/wezterm/wezterm.lua` | Critical, current | Backported with optional Maestro delegation. |
-| `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the theme only. |
+| `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the shared font and theme settings. |
 | `~/Library/Application Support/com.cmuxterm.app/config.ghostty` | Tool-owned, generated | Not tracked. `cmux themes set` rewrites this file between its own `# cmux themes start/end` markers, so linking it would fight the application. `~/.config/ghostty/config` is the authored source instead. |
 | `~/.config/cmux/cmux.json` | Authored, current | Backported, trimmed to authored settings only. cmux writes ~400 lines of its own commented-out defaults into this file on first run; those are not tracked. Audited before backporting: `automation.socketPassword` is absent, and no employer or credential content is present. **Caveat:** if cmux ever rewrites this file it will write through the symlink and re-add the default dump to the repository copy, which should then be re-trimmed. |
 | `~/.config/nvim/` | Absent at review | No existing configuration files were available to import. Initialized from a minimal current LazyVim starter-style baseline and linked from `home/.config/nvim`. |

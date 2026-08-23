@@ -9,3 +9,5 @@
 # authored source of truth.
 
 theme = light:Nord,dark:Nord
+font-family = JetBrainsMono Nerd Font
+font-size = 13

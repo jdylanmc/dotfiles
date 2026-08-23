@@ -43,7 +43,8 @@ Private, machine-specific, or employer-specific shell additions belong in:
 Both terminals are declared in the `Brewfile`.
 
 `home/.config/ghostty/config` is read by Ghostty and by cmux, which embeds
-libghostty, so one authored file themes both.
+libghostty, so one authored file applies the JetBrains Mono Nerd Font and theme
+to both.
 
 `home/.config/cmux/cmux.json` carries the authored cmux settings only: dark app
 chrome and a terminal-matched sidebar, so the native window agrees with the

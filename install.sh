@@ -53,6 +53,7 @@ link_file() {
   ln -s "$source" "$target"
 }
 
+link_file "$ROOT/home/.zshenv" "$HOME/.zshenv"
 link_file "$ROOT/home/.zshrc" "$HOME/.zshrc"
 link_file "$ROOT/home/.config/wezterm" "$HOME/.config/wezterm"
 link_file "$ROOT/home/.config/ghostty" "$HOME/.config/ghostty"

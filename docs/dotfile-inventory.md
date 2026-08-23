@@ -6,6 +6,7 @@ copying or printing their contents.
 
 | Path | Classification | Disposition |
 |---|---|---|
+| `~/.zshenv` | Authored, current | Backported with a portable `$HOME` path and optional Rust environment loading. |
 | `~/.zshrc` | Critical, current | Sanitized baseline backported; private additions move to `~/.zshrc.local`. |
 | `~/.config/wezterm/wezterm.lua` | Critical, current | Backported with optional Maestro delegation. |
 | `~/.config/ghostty/config` | Authored, current | Backported. Read by both Ghostty and cmux, which embeds libghostty. Holds the shared font and theme settings. |
@@ -18,8 +19,8 @@ copying or printing their contents.
 | `~/.config/herdr/` | Critical, current | Owned by the Maestro repository; logs, locks, and sessions excluded. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Critical, pending review | Do not backport until identity, includes, signing, and credential helpers are separated. |
-| `~/.zshenv` | Pending review | Inspect for portable environment setup versus machine-specific paths. |
-| `~/.profile`, `~/.bashrc`, `~/.tcshrc` | Possibly obsolete | Determine whether any active tool still launches these shells. |
+| `~/.profile` | Removed | Redundant for the configured Zsh login shell after Cargo environment loading moved to the tracked `~/.zshenv`. |
+| `~/.bashrc`, `~/.tcshrc` | Possibly obsolete | Determine whether any active tool still launches these shells. |
 | `~/.zshrc-e`, `~/.bashrc-e`, `~/.zshrc.pre-oh-my-zsh` | Legacy backups | Compare once, then archive or delete locally; never link as live config. |
 | `~/.npmrc` | Sensitive local state | Permanently excluded; may contain registry authentication. |
 | `~/.ssh/`, `~/.gnupg/` | Sensitive local state | Permanently excluded. Document setup concepts only, never key material. |

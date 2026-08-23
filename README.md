@@ -20,7 +20,7 @@ The installer:
 1. installs declared public Homebrew dependencies
 2. installs Oh My Zsh from its public repository if needed
 3. backs up conflicting live files
-4. links repository-owned Zsh, terminal, cmux, and Neovim configuration into `$HOME`
+4. links repository-owned Zsh startup, terminal, cmux, and Neovim configuration into `$HOME`
 5. optionally clones and installs Maestro
 6. enables versioned pre-commit and pre-push public-content checks
 
@@ -31,6 +31,9 @@ install only dotfiles.
 
 Files under `home/` are authoritative and linked directly into `$HOME`.
 Editing a linked file edits the repository copy.
+
+`home/.zshenv` provides portable environment setup for every Zsh invocation,
+while `home/.zshrc` owns interactive shell behavior.
 
 Private, machine-specific, or employer-specific shell additions belong in:
 

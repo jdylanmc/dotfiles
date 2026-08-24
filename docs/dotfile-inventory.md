@@ -23,7 +23,8 @@ copying or printing their contents.
 | `~/.profile` | Removed | Redundant for the configured Zsh login shell after Cargo environment loading moved to the tracked `~/.zshenv`. |
 | `~/.bashrc` | Removed | Contained redundant Rust setup and work-only authentication paths; Bash is not the configured login shell. |
 | `~/.tcshrc` | Removed | Contained only unused Rust environment setup; tcsh is not the configured login shell. |
-| `~/.zshrc-e`, `~/.bashrc-e`, `~/.zshrc.pre-oh-my-zsh` | Legacy backups | Compare once, then archive or delete locally; never link as live config. |
+| `~/.zshrc-e`, `~/.bashrc-e`, `~/.zshrc.pre-oh-my-zsh`, `~/.zshrc.backup.*` | Removed | Obsolete shell backups were deleted after the tracked Zsh setup was verified. |
+| `~/.config/nx/ide.json`, `~/.storybook/settings.json` | Removed | Trivial generated preferences were deleted; their tools can recreate them when needed. |
 | `~/.npmrc` | Sensitive local state | Permanently excluded; may contain registry authentication. |
 | `~/.ssh/`, `~/.gnupg/` | Sensitive local state | Permanently excluded. Document setup concepts only, never key material. |
 | `~/.kube/` | Sensitive local state | Permanently excluded; contains cluster endpoints and credentials. |

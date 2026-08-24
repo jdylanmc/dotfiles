@@ -1,3 +1,4 @@
+brew "azure-cli"
 brew "git"
 brew "gh"
 brew "git-delta"

@@ -65,6 +65,35 @@ until they are deliberately migrated.
 links that file individually so local `hosts.yml` authentication remains
 untracked and untouched.
 
+### GitHub account context
+
+`home/.zshrc` binds the `gh` CLI to the GitHub account that matches the current
+directory, so a machine with more than one authenticated account cannot act as
+the wrong one.
+
+The directory-to-account mapping is not defined in this repository. Each private
+profile declares its own account, and the existing `includeIf` routing decides
+which profile applies to the current directory:
+
+```sh
+git config --file ~/.gitconfig.personal github.account <personal-handle>
+git config --file ~/.gitconfig.work     github.account <work-handle>
+```
+
+Git therefore remains the single source of truth for directory routing, and no
+account handles or machine paths are tracked here.
+
+| Command | Purpose |
+|---|---|
+| `ghwho` | Report the account in effect for the current directory. |
+| `ghuse <handle>` | Pin an account for the current shell. |
+| `ghuse` | Resume directory tracking. |
+
+The shell exports `GH_TOKEN` rather than switching the shared `gh` active
+account, so concurrent shells in different directories do not fight over one
+global setting. Pair it with a `credential.https://github.com.helper` entry in
+each private profile to pin Git pushes to the same account.
+
 ## Installer maintenance
 
 `install.sh` is a thin macOS orchestrator. Shared safe-write helpers live under

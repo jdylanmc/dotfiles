@@ -141,8 +141,11 @@ repository.
 `home/.config/nvim` is a minimal
 [LazyVim starter](https://github.com/LazyVim/starter)-style configuration.
 The first Neovim launch bootstraps `lazy.nvim` and installs LazyVim's default
-plugins. Add local plugin specifications under `lua/plugins/`; the generated
-`lazy-lock.json` is tracked to keep plugin revisions reproducible.
+plugins. It uses four-space indentation for every filetype and enables LazyVim
+language extras for C/C++, C#, Go, Rust, JavaScript/TypeScript, YAML, JSON, and
+Markdown. XML syntax support comes from LazyVim's core Tree-sitter parsers. Add
+local plugin specifications under `lua/plugins/`; the generated `lazy-lock.json`
+is tracked to keep plugin revisions reproducible.
 
 The `Brewfile` declares LazyVim's command-line prerequisites and an optional
 Nerd Font for icons. Run `:LazyHealth` after plugin updates to check the

@@ -26,4 +26,5 @@ brew "swiftlint"
 cask "agentwrapper/tap/agent-orchestrator", trusted: true
 cask "cmux"
 cask "font-jetbrains-mono-nerd-font"
+cask "ghostty"
 cask "vishvavariya/notchy/notchy", trusted: true

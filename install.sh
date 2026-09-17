@@ -42,6 +42,8 @@ source "$ROOT/scripts/install/shell.sh"
 source "$ROOT/scripts/install/terminal.sh"
 # shellcheck source=scripts/install/herdr.sh
 source "$ROOT/scripts/install/herdr.sh"
+# shellcheck source=scripts/install/terminal-code.sh
+source "$ROOT/scripts/install/terminal-code.sh"
 # shellcheck source=scripts/install/neovim.sh
 source "$ROOT/scripts/install/neovim.sh"
 # shellcheck source=scripts/install/git.sh
@@ -54,6 +56,7 @@ install_homebrew "$ROOT" "$use_brew"
 install_shell "$ROOT"
 install_terminal "$ROOT"
 install_herdr "$ROOT"
+install_terminal_code
 install_neovim "$ROOT"
 install_github_cli "$ROOT"
 install_git "$ROOT" "$git_setup"

@@ -18,10 +18,7 @@ copying or printing their contents.
 | `~/.copilot/` | Authentication or work runtime | Permanently excluded; holds employer plugin, marketplace, and Model Context Protocol configuration. The public `copilot-cmux` plugin is declared as an install step only, never by copying this directory. |
 | `~/.config/herdr/config.toml` | Authored, current | Backported from `herdr --default-config` and linked from `home/.config/herdr/config.toml`. |
 | `~/.config/herdr/*.log`, `~/.config/herdr/sessions/`, `~/.config/herdr/agent-detection/` | Tool-owned runtime | Not tracked. Logs, session state, and downloaded detection manifests remain local. |
-| `~/.config/herdr/plugins/` | Third-party plugin state | Not tracked. The installer adds `zenbu-labs/terminal-code/herdr-plugin`; HerdR owns its checkout, configuration, and enablement state. |
 | `~/.copilot/hooks/herdr-agent-state.sh`, `~/.copilot/settings.json` | Integration-managed local state | Not tracked. The installer runs `herdr integration install copilot` to create or update the integration safely. |
-| `~/.local/bin/tode`, `~/.local/lib/tode/` | Third-party dependency | Not tracked. Installed by the official Terminal Code HerdR plugin. |
-| `~/.local/share/tode/`, `~/.local/state/tode/`, `~/.cache/tode/` | Tool-owned runtime | Not tracked. Contains the editor profile, extensions, browser data, install metadata, caches, and logs. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Authored, current | Backported as an identity-free base. Personal and work identities, credentials, signing configuration, hosts, and employer settings remain in mode-`0600` local includes. |
 | `~/.config/gh/config.yml` | Authored, current | Backported with portable GitHub CLI preferences only. Linked individually so `hosts.yml` authentication and runtime state remain local. |

@@ -22,10 +22,9 @@ The installer:
 3. backs up conflicting live files
 4. links repository-owned Zsh startup, Git, terminal, cmux, HerdR, and Neovim configuration into `$HOME`
 5. installs the HerdR integration for GitHub Copilot CLI
-6. installs Terminal Code and its HerdR plugin
-7. guides personal and optional work Git identity setup into untracked local files
-8. optionally clones and installs Maestro
-9. enables versioned pre-commit and pre-push public-content checks
+6. guides personal and optional work Git identity setup into untracked local files
+7. optionally clones and installs Maestro
+8. enables versioned pre-commit and pre-push public-content checks
 
 Use `--no-brew` to skip package installation or omit `--with-maestro` to
 install only dotfiles. Use `--no-git-setup` to skip guided Git identity prompts.
@@ -165,20 +164,6 @@ herdr integration install copilot
 
 The integration-managed hook and settings remain under `~/.copilot` and are
 never copied into this repository.
-
-### Terminal Code
-
-The installer adds the official
-[Terminal Code](https://github.com/zenbu-labs/terminal-code) HerdR plugin:
-
-```sh
-herdr plugin install zenbu-labs/terminal-code/herdr-plugin --yes
-```
-
-The plugin installs the `tode` command and adds an action that opens Terminal
-Code in a right-hand HerdR split. Its application bundle, editor profile,
-extensions, browser data, caches, logs, and plugin checkout remain local and
-untracked.
 
 ## Development-dotfile audit
 

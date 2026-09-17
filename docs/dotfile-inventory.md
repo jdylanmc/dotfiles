@@ -16,7 +16,9 @@ copying or printing their contents.
 | `~/.local/state/nvim/nvim.log` | Tool-owned, generated | Not imported or modified. Runtime logs remain outside the repository. |
 | `~/.local/share/nvim/`, `~/.cache/nvim/` | Absent at review | No plugin data or cache required migration. Future contents remain tool-owned and untracked. |
 | `~/.copilot/` | Authentication or work runtime | Permanently excluded; holds employer plugin, marketplace, and Model Context Protocol configuration. The public `copilot-cmux` plugin is declared as an install step only, never by copying this directory. |
-| `~/.config/herdr/`, `~/.local/bin/herdr-agency-copilot`, `~/.local/bin/maestro-herdr` | Removed | Retired with the standalone Herdr formula, service, configuration, integration shim, and Maestro launcher. |
+| `~/.config/herdr/config.toml` | Authored, current | Backported from `herdr --default-config` and linked from `home/.config/herdr/config.toml`. |
+| `~/.config/herdr/*.log`, `~/.config/herdr/sessions/`, `~/.config/herdr/agent-detection/` | Tool-owned runtime | Not tracked. Logs, session state, and downloaded detection manifests remain local. |
+| `~/.copilot/hooks/herdr-agent-state.sh`, `~/.copilot/settings.json` | Integration-managed local state | Not tracked. The installer runs `herdr integration install copilot` to create or update the integration safely. |
 | `~/.local/bin/maestro`, `ai` | Critical, current | Owned by the Maestro repository. |
 | `~/.gitconfig` | Authored, current | Backported as an identity-free base. Personal and work identities, credentials, signing configuration, hosts, and employer settings remain in mode-`0600` local includes. |
 | `~/.config/gh/config.yml` | Authored, current | Backported with portable GitHub CLI preferences only. Linked individually so `hosts.yml` authentication and runtime state remain local. |

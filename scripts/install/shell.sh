@@ -9,4 +9,5 @@ install_shell() {
 
   link_file "$root/home/.zshenv" "$HOME/.zshenv"
   link_file "$root/home/.zshrc" "$HOME/.zshrc"
+  link_file "$root/home/.config/starship.toml" "$HOME/.config/starship.toml"
 }

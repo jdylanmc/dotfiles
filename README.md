@@ -104,7 +104,11 @@ Bats suite.
 
 ## Terminal
 
-cmux and the terminal font are declared in the `Brewfile`.
+cmux, Starship, and the terminal font are declared in the `Brewfile`.
+
+`home/.config/starship.toml` tracks Starship's Nerd Font Symbols preset.
+`home/.zshrc` initializes Starship after Oh My Zsh and disables the previous
+Oh My Zsh prompt theme.
 
 `home/.config/ghostty/config` is read by Ghostty and by cmux, which embeds
 libghostty, so one authored file applies the JetBrains Mono Nerd Font and theme

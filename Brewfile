@@ -22,6 +22,7 @@ brew "nvm"
 brew "ripgrep"
 brew "rust-analyzer"
 brew "shellcheck"
+brew "starship"
 brew "swiftlint"
 cask "agentwrapper/tap/agent-orchestrator", trusted: true
 cask "cmux"

@@ -1,7 +1,6 @@
 export LANG=en_US.UTF-8
 
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="eastwood"
 plugins=(git brew yarn nvm docker docker-compose)
 
 if [ -s "$ZSH/oh-my-zsh.sh" ]; then
@@ -98,4 +97,8 @@ fi
 
 if [ -f "$HOME/.zshrc.local" ]; then
   source "$HOME/.zshrc.local"
+fi
+
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
 fi

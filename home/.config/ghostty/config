@@ -11,3 +11,9 @@
 theme = light:Nord,dark:Nord
 font-family = JetBrainsMono Nerd Font
 font-size = 13
+
+# Window
+background-opacity = 0.9
+background-blur-radius = 20
+window-padding-x = 10
+window-padding-y = 8

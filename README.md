@@ -18,7 +18,8 @@ cd ~/.dotfiles
 The installer:
 
 1. installs declared public Homebrew dependencies
-2. installs Oh My Zsh from its public repository if needed
+2. installs Oh My Zsh plus autosuggestions and syntax-highlighting plugins from
+   their public repositories if needed
 3. backs up conflicting live files
 4. links repository-owned Zsh startup, Git, terminal, cmux, HerdR, and Neovim configuration into `$HOME`
 5. installs the HerdR integration for GitHub Copilot CLI

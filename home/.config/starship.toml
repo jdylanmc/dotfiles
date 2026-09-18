@@ -1,4 +1,5 @@
 "$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
 
 [aws]
 symbol = " "
@@ -21,6 +22,10 @@ symbol = " "
 
 [c]
 symbol = " "
+
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[>](bold red)"
 
 [cpp]
 symbol = " "
@@ -123,6 +128,9 @@ symbol = " "
 
 [kubernetes]
 symbol = "󱃾 "
+
+[line_break]
+disabled = true
 
 [lua]
 symbol = " "
